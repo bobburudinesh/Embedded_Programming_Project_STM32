@@ -1,0 +1,13 @@
+.settings/com.st.stm32cube.ide.mcu.sfrview.prefs
+Debug/Core/Src/main.cyclo
+Debug/Core/Src/main.d
+Debug/Core/Src/main.o
+Debug/Core/Src/main.su
+Debug/Core/Src/stm32f4xx_hal_msp.cyclo
+Debug/Core/Src/stm32f4xx_hal_msp.d
+Debug/Core/Src/stm32f4xx_hal_msp.o
+Debug/Core/Src/stm32f4xx_hal_msp.su
+Debug/Core/Src/stm32f4xx_it.cyclo
+Debug/Core/Src/stm32f4xx_it.d
+Debug/Core/Src/stm32f4xx_it.o
+Debug/Core/Src/stm32f4xx_it.su
