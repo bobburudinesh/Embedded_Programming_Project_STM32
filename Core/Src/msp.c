@@ -4,7 +4,7 @@
  *  Created on: Jan 28, 2025
  *      Author: dineshbobburu
  */
-#include "stm32f4xx_hal.h"
+#include "main.h"
 
 void HAL_MspInit(void) {
 	// Here we will do low level processor specific init's.

@@ -1,4 +1,12 @@
 /*
+ * UART_Interrupt_Based.c
+ *
+ *  Created on: Jan 31, 2025
+ *      Author: bobbu
+ */
+
+
+/*
  * main_app.c
  *
  *  Created on: Jan 28, 2025
@@ -11,13 +19,20 @@
 #include "stm32f4xx_hal.h"
 #include "string.h"
 
+#define TRUE	1
+#define	 FALSE 	0
+
 void SystemClockConfig(void);
 void UART2_Init(void);
 void Error_handler(void);
 
 UART_HandleTypeDef	huart2;
 
-char *initial_data = "Please Enter data and press enter\r\n";
+char *initial_data = "Application is running \r\n Please Enter data and press enter\r\n";
+uint8_t data_buffer[100];
+uint8_t	recvd_data;
+uint32_t count;
+uint8_t reception_complete;
 
 
 int main(void) {
@@ -27,23 +42,11 @@ int main(void) {
 	HAL_UART_MspInit(&huart2);
 	USART2->BRR = 0x016C;
 	HAL_UART_Transmit(&huart2, (uint8_t *)initial_data, strlen(initial_data), HAL_MAX_DELAY);
-	uint8_t rcvd_data;
-	uint8_t data_buffer[100];
-	uint32_t count;
-	while(1) {
-		HAL_UART_Receive(&huart2, &rcvd_data, 1, HAL_MAX_DELAY); // blocking call
-		if (rcvd_data == '\r') {
-			break;
-		} else {
-			data_buffer[count++] = rcvd_data;
-		}
-
+	while(!reception_complete) {
+		HAL_UART_Receive_IT(&huart2, &recvd_data, 1);
 	}
-	data_buffer[count++] = '\r';
-	HAL_UART_Transmit(&huart2, (uint8_t *)data_buffer, count, HAL_MAX_DELAY);
 
 	while(1);
-
 	return 0;
 }
 
@@ -63,6 +66,17 @@ void UART2_Init(void){
 		// There is a problem
 		Error_handler();
 	}
+}
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
+	if (recvd_data == '\r') {
+		reception_complete = TRUE;
+		data_buffer[count++] = '\r';
+		HAL_UART_Transmit(&huart2, data_buffer, count, HAL_MAX_DELAY);
+	} else {
+		data_buffer[count++] = recvd_data;
+	}
+
 }
 
 void Error_handler(void) {
