@@ -1,5 +1,5 @@
+"./Core/Src/UART_Interrupt_Based.o"
 "./Core/Src/it.o"
-"./Core/Src/main_app.o"
 "./Core/Src/msp.o"
 "./Core/Src/syscalls.o"
 "./Core/Src/sysmem.o"
