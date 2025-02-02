@@ -37,8 +37,14 @@ int main(void) {
 
 
 	// lets start timer in interrupt CONFIG
-	HAL_TIM_Base_Start_IT(&htimer6);
-	while(1);
+	HAL_TIM_Base_Start(&htimer6);
+	while(1) {
+	while(!(TIM6->SR & TIM_SR_UIF));
+	TIM6->SR = 0;
+	HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
+
+	}
+
 
 	return 0;
 }
@@ -68,10 +74,7 @@ void TIMER6_Init(void) {
 	}
 }
 
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
-	// When update events happens this interrupt callback is called
-	HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
-}
+
 
 void Error_handler(void) {
 	while(1);
