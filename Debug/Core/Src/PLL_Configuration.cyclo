@@ -1,5 +1,0 @@
-../Core/Src/PLL_Configuration.c:41:5:main	1
-../Core/Src/PLL_Configuration.c:54:6:UART2_Init	2
-../Core/Src/PLL_Configuration.c:68:6:SystemClock_Config_HSI	6
-../Core/Src/PLL_Configuration.c:152:6:SystemClock_Config_HSE	6
-../Core/Src/PLL_Configuration.c:235:6:Error_handler	1

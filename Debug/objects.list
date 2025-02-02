@@ -1,4 +1,3 @@
-"./Core/Src/PLL_Configuration.o"
 "./Core/Src/Timers_1.o"
 "./Core/Src/it.o"
 "./Core/Src/msp.o"

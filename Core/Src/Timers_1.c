@@ -18,7 +18,7 @@
 #include"main.h"
 
 
-
+UART_HandleTypeDef huart2;
 int main(void) {
 
 
