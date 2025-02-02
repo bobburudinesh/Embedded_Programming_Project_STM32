@@ -125,6 +125,9 @@ void Error_Handler(void);
 #define MEMS_INT2_GPIO_Port GPIOE
 
 /* USER CODE BEGIN Private defines */
+#define SYS_CLOCK_FRQEQ_50_MHZ	50
+#define SYS_CLOCK_FRQEQ_84_MHZ	84
+#define SYS_CLOCK_FRQEQ_120_MHZ	120
 
 /* USER CODE END Private defines */
 

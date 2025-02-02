@@ -2,16 +2,9 @@
  * UART_Interrupt_Based.c
  *
  *  Created on: Jan 31, 2025
- *      Author: bobbu
+ *      Author: dinesh bobburu
  */
 
-
-/*
- * main_app.c
- *
- *  Created on: Jan 28, 2025
- *      Author: dineshbobburu
- */
 
 
 #include "main_app.h"

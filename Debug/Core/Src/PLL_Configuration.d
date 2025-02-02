@@ -1,4 +1,4 @@
-Core/Src/UART_Interrupt_Based.o: ../Core/Src/UART_Interrupt_Based.c \
+Core/Src/PLL_Configuration.o: ../Core/Src/PLL_Configuration.c \
  ../Core/Inc/main_app.h ../Core/Inc/main.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Core/Inc/stm32f4xx_hal_conf.h \
