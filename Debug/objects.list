@@ -1,4 +1,4 @@
-"./Core/Src/Clock_PLL.o"
+"./Core/Src/PLL_Configuration.o"
 "./Core/Src/it.o"
 "./Core/Src/msp.o"
 "./Core/Src/syscalls.o"

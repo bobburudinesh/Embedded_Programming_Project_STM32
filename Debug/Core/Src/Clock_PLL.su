@@ -1,3 +1,0 @@
-../Core/Src/Clock_PLL.c:26:5:main	176	static
-../Core/Src/Clock_PLL.c:83:6:UART2_Init	8	static
-../Core/Src/Clock_PLL.c:98:6:Error_handler	4	static
