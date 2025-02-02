@@ -41,3 +41,17 @@ void HAL_UART_MspInit(UART_HandleTypeDef *huart)
 	HAL_NVIC_EnableIRQ(USART2_IRQn);
 	HAL_NVIC_SetPriority(USART2_IRQn, 15, 0);
 }
+
+void HAL_TIM_Base_MspInit(TIM_HandleTypeDef *htimer) {
+	// 1. Enable the clock for the timer 6 peripheral
+	__HAL_RCC_TIM6_CLK_ENABLE();
+
+	//2. Enable IRQ of TIM6;
+
+	HAL_NVIC_EnableIRQ(TIM6_DAC_IRQn);
+
+	//3. Setup the priority for TIM6_DAC_IRQn
+	HAL_NVIC_SetPriority(TIM6_DAC_IRQn, 15, 0);
+
+
+}
