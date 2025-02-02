@@ -8,7 +8,7 @@
 
 
 /*
- * Exercise
+ * Exercise: PLL CONFIGURATION
  * COnfig SYSCLK using PLL
  * In case 1: USE HSE as input to PLL engine
  * In case 2: USE HSI as input to PLL engine
