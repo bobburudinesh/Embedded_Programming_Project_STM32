@@ -62,7 +62,7 @@ main-build: Embedded_Programming_Project_STM32.elf secondary-outputs
 
 # Tool invocations
 Embedded_Programming_Project_STM32.elf Embedded_Programming_Project_STM32.map: $(OBJS) $(USER_OBJS) D:\Embedded_Systems\Projects\STM32\Embedded_Programming_Project_STM32\STM32F407VGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "Embedded_Programming_Project_STM32.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"D:\Embedded_Systems\Projects\STM32\Embedded_Programming_Project_STM32\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Embedded_Programming_Project_STM32.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+	arm-none-eabi-gcc -o "Embedded_Programming_Project_STM32.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"D:\Embedded_Systems\Projects\STM32\Embedded_Programming_Project_STM32\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Embedded_Programming_Project_STM32.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

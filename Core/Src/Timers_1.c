@@ -26,6 +26,7 @@ void Error_handler(void);
 
 UART_HandleTypeDef huart2;
 TIM_HandleTypeDef	htimer6;
+TIM_HandleTypeDef	htimer2;
 
 
 int main(void) {

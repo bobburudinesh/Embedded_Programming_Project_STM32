@@ -55,3 +55,22 @@ void HAL_TIM_Base_MspInit(TIM_HandleTypeDef *htimer) {
 
 
 }
+
+void HAL_TIM_IC_MspInit(TIM_HandleTypeDef *htim) {
+	//1. ENable the clock for Timer2
+
+	__HAL_RCC_TIM2_CLK_ENABLE();
+	__HAL_RCC_GPIOA_CLK_ENABLE();
+	//2. COnfigure GPIO as Tim 2 Channel 1 alternate function
+	GPIO_InitTypeDef tim2Channel;
+	tim2Channel.Pin = GPIO_PIN_5;
+	tim2Channel.Mode = GPIO_MODE_AF_PP;
+	tim2Channel.Alternate = GPIO_AF1_TIM2;
+	//tim2Channel.Pull = GPIO_NOPULL;
+	//tim2Channel.Speed = GPIO_SPEED_FAST;
+	HAL_GPIO_Init(GPIOA, &tim2Channel);
+
+	//3. NVIC Settings
+	HAL_NVIC_SetPriority(TIM2_IRQn, 15, 0);
+	HAL_NVIC_EnableIRQ(TIM2_IRQn);
+}

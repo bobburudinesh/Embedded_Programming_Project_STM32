@@ -1,5 +1,4 @@
 "./Core/Src/Timers_1.o"
-"./Core/Src/Timers_1_Interrupt.o"
 "./Core/Src/it.o"
 "./Core/Src/msp.o"
 "./Core/Src/syscalls.o"

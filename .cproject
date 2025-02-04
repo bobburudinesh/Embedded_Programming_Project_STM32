@@ -57,6 +57,9 @@
 							</tool>
 							<tool id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.linker.1515197910" name="MCU/MPU GCC Linker" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.linker">
 								<option id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.linker.option.script.1686519437" name="Linker Script (-T)" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.linker.option.script" value="${workspace_loc:/${ProjName}/STM32F407VGTX_FLASH.ld}" valueType="string"/>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.linker.option.otherflags.1171511087" name="Other flags" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.linker.option.otherflags" valueType="stringList">
+									<listOptionValue builtIn="false" value="-u_printf_float"/>
+								</option>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.linker.input.311421141" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
@@ -73,15 +76,15 @@
 							<tool id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.objcopy.symbolsrec.1399571598" name="MCU Output Converter Motorola S-rec with symbols" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.objcopy.symbolsrec"/>
 						</toolChain>
 					</folderInfo>
-					<fileInfo id="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.2146173150.1249407486" name="Timers_1.c" rcbsApplicability="disable" resourcePath="Core/Src/Timers_1.c" toolsToInvoke="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.1091523499.1897199526">
-						<tool id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.1091523499.1897199526" name="MCU/MPU GCC Compiler" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.1091523499"/>
+					<fileInfo id="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.2146173150.1738664894" name="Timers_2_General_Purpose_Timer.c" rcbsApplicability="disable" resourcePath="Core/Src/Timers_2_General_Purpose_Timer.c" toolsToInvoke="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.1091523499.411811922">
+						<tool id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.1091523499.411811922" name="MCU/MPU GCC Compiler" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.1091523499"/>
 					</fileInfo>
 					<fileInfo id="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.2146173150.460396483" name="stm32f4xx_it.h" rcbsApplicability="disable" resourcePath="Core/Inc/stm32f4xx_it.h" toolsToInvoke=""/>
 					<fileInfo id="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.2146173150.22226075" name="it.h" rcbsApplicability="disable" resourcePath="Core/Inc/it.h" toolsToInvoke=""/>
 					<fileInfo id="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.2146173150.195316377" name="main_app.h" rcbsApplicability="disable" resourcePath="Core/Inc/main_app.h" toolsToInvoke=""/>
 					<fileInfo id="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.2146173150.767771561" name="main.h" rcbsApplicability="disable" resourcePath="Core/Inc/main.h" toolsToInvoke=""/>
 					<sourceEntries>
-						<entry excluding="Src/Timers_1.c|Src/PLL_Configuration.c|Src/Clock_PLL.c|Src/UART_Interrupt_Based.c|Src/main_app.c|Src/stm32f4xx_it.c|Src/stm32f4xx_hal_msp.c|Src/main.c|Inc/stm32f4xx_it.h|Src/TestFile.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Core"/>
+						<entry excluding="Src/Timers_1.c|Src/Timers_1_Interrupt.c|Src/PLL_Configuration.c|Src/Clock_PLL.c|Src/UART_Interrupt_Based.c|Src/main_app.c|Src/stm32f4xx_it.c|Src/stm32f4xx_hal_msp.c|Src/main.c|Inc/stm32f4xx_it.h|Src/TestFile.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Core"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Drivers"/>
 					</sourceEntries>
 				</configuration>
