@@ -61,14 +61,30 @@ void HAL_TIM_IC_MspInit(TIM_HandleTypeDef *htim) {
 
 	__HAL_RCC_TIM2_CLK_ENABLE();
 	__HAL_RCC_GPIOA_CLK_ENABLE();
-	//2. COnfigure GPIO as Tim 2 Channel 1 alternate function
+	__HAL_RCC_GPIOB_CLK_ENABLE();
+	//2. COnfigure GPIO as Tim 2 Channel 1,2,3,4 alternate function
 	GPIO_InitTypeDef tim2Channel;
-	tim2Channel.Pin = GPIO_PIN_5;
+	/*
+	 * PA0  -  TIM2_CH1
+	 * PA1  -  TIM2_CH2
+	 * PB10  -  TIM2_CH3
+	 * PB2  -  TIM2_CH4
+	 * */
+
 	tim2Channel.Mode = GPIO_MODE_AF_PP;
 	tim2Channel.Alternate = GPIO_AF1_TIM2;
-	//tim2Channel.Pull = GPIO_NOPULL;
-	//tim2Channel.Speed = GPIO_SPEED_FAST;
+	tim2Channel.Pull = GPIO_NOPULL;
+	tim2Channel.Speed = GPIO_SPEED_FREQ_LOW;
+	tim2Channel.Pin = GPIO_PIN_0 | GPIO_PIN_1; //PA0 and PA1
 	HAL_GPIO_Init(GPIOA, &tim2Channel);
+	tim2Channel.Mode = GPIO_MODE_AF_PP;
+		tim2Channel.Alternate = GPIO_AF1_TIM2;
+		tim2Channel.Pull = GPIO_NOPULL;
+		tim2Channel.Speed = GPIO_SPEED_FREQ_LOW;
+	tim2Channel.Pin = GPIO_PIN_2 | GPIO_PIN_10; //PB2 and PB10
+	HAL_GPIO_Init(GPIOB, &tim2Channel);
+
+
 
 	//3. NVIC Settings
 	HAL_NVIC_SetPriority(TIM2_IRQn, 15, 0);
