@@ -34,7 +34,8 @@ void SystemClock_Config_HSE(uint8_t clock_freq);
 void SystemClock_Config_HSI(uint8_t clock_freq);
 
 UART_HandleTypeDef	huart2;
-
+TIM_HandleTypeDef	htimer6;
+TIM_HandleTypeDef	htimer2;
 
 
 

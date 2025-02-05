@@ -1,4 +1,4 @@
-"./Core/Src/Timers_2_General_Purpose_OC_Mode.o"
+"./Core/Src/Timers2_GeneralPurpose_OC_Mode_PWM.o"
 "./Core/Src/it.o"
 "./Core/Src/msp.o"
 "./Core/Src/syscalls.o"
