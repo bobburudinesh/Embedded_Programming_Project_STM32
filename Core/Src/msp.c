@@ -147,3 +147,14 @@ void HAL_TIM_PWM_MspInit(TIM_HandleTypeDef *htim) {
 	HAL_NVIC_EnableIRQ(TIM2_IRQn);
 }
 
+void HAL_CAN_MspInit(CAN_HandleTypeDef	*hcan) {
+	GPIO_InitTypeDef canGPIOInit;
+	__HAL_RCC_CAN1_CLK_ENABLE();
+	__HAL_RCC_GPIOA_CLK_ENABLE();
+	canGPIOInit.Mode = GPIO_MODE_AF_PP;
+	canGPIOInit.Pull = GPIO_NOPULL;
+	canGPIOInit.Alternate = GPIO_AF9_CAN1;
+	canGPIOInit.Pin = GPIO_PIN_11 | GPIO_PIN_12;
+	canGPIOInit.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+	HAL_GPIO_Init(GPIOA, &canGPIOInit);
+}
