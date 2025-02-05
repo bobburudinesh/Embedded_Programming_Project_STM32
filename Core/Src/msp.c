@@ -41,3 +41,109 @@ void HAL_UART_MspInit(UART_HandleTypeDef *huart)
 	HAL_NVIC_EnableIRQ(USART2_IRQn);
 	HAL_NVIC_SetPriority(USART2_IRQn, 15, 0);
 }
+
+void HAL_TIM_Base_MspInit(TIM_HandleTypeDef *htimer) {
+	// 1. Enable the clock for the timer 6 peripheral
+	__HAL_RCC_TIM6_CLK_ENABLE();
+
+	//2. Enable IRQ of TIM6;
+
+	HAL_NVIC_EnableIRQ(TIM6_DAC_IRQn);
+
+	//3. Setup the priority for TIM6_DAC_IRQn
+	HAL_NVIC_SetPriority(TIM6_DAC_IRQn, 15, 0);
+
+
+}
+void HAL_TIM_IC_MspInit(TIM_HandleTypeDef *htim) {
+	//1. ENable the clock for Timer2
+
+	__HAL_RCC_TIM2_CLK_ENABLE();
+	__HAL_RCC_GPIOA_CLK_ENABLE();
+
+	//2. COnfigure GPIO as Tim 2 Channel 1 alternate function
+	GPIO_InitTypeDef tim2Channel;
+	tim2Channel.Mode = GPIO_MODE_AF_PP;
+	tim2Channel.Alternate = GPIO_AF1_TIM2;
+	tim2Channel.Pull = GPIO_NOPULL;
+	tim2Channel.Speed = GPIO_SPEED_FREQ_LOW;
+	tim2Channel.Pin = GPIO_PIN_5; //PA0 and PA1
+	HAL_GPIO_Init(GPIOA, &tim2Channel);
+
+
+
+
+	//3. NVIC Settings
+	HAL_NVIC_SetPriority(TIM2_IRQn, 15, 0);
+	HAL_NVIC_EnableIRQ(TIM2_IRQn);
+}
+void HAL_TIM_OC_MspInit(TIM_HandleTypeDef *htim) {
+	//1. ENable the clock for Timer2
+
+	__HAL_RCC_TIM2_CLK_ENABLE();
+	__HAL_RCC_GPIOA_CLK_ENABLE();
+	__HAL_RCC_GPIOB_CLK_ENABLE();
+	//2. COnfigure GPIO as Tim 2 Channel 1,2,3,4 alternate function
+	GPIO_InitTypeDef tim2Channel;
+	/*
+	 * PA0  -  TIM2_CH1
+	 * PA1  -  TIM2_CH2
+	 * PB10  -  TIM2_CH3
+	 * PB2  -  TIM2_CH4
+	 * */
+
+	tim2Channel.Mode = GPIO_MODE_AF_PP;
+	tim2Channel.Alternate = GPIO_AF1_TIM2;
+	tim2Channel.Pull = GPIO_NOPULL;
+	tim2Channel.Speed = GPIO_SPEED_FREQ_LOW;
+	tim2Channel.Pin = GPIO_PIN_0 | GPIO_PIN_1; //PA0 and PA1
+	HAL_GPIO_Init(GPIOA, &tim2Channel);
+	tim2Channel.Mode = GPIO_MODE_AF_PP;
+		tim2Channel.Alternate = GPIO_AF1_TIM2;
+		tim2Channel.Pull = GPIO_NOPULL;
+		tim2Channel.Speed = GPIO_SPEED_FREQ_LOW;
+	tim2Channel.Pin = GPIO_PIN_2 | GPIO_PIN_10; //PB2 and PB10
+	HAL_GPIO_Init(GPIOB, &tim2Channel);
+
+
+
+	//3. NVIC Settings
+	HAL_NVIC_SetPriority(TIM2_IRQn, 15, 0);
+	HAL_NVIC_EnableIRQ(TIM2_IRQn);
+}
+
+void HAL_TIM_PWM_MspInit(TIM_HandleTypeDef *htim) {
+	//1. ENable the clock for Timer2
+
+	__HAL_RCC_TIM2_CLK_ENABLE();
+	__HAL_RCC_GPIOA_CLK_ENABLE();
+	__HAL_RCC_GPIOB_CLK_ENABLE();
+	//2. COnfigure GPIO as Tim 2 Channel 1,2,3,4 alternate function
+	GPIO_InitTypeDef tim2Channel;
+	/*
+	 * PA0  -  TIM2_CH1
+	 * PA1  -  TIM2_CH2
+	 * PB10  -  TIM2_CH3
+	 * PB2  -  TIM2_CH4
+	 * */
+
+	tim2Channel.Mode = GPIO_MODE_AF_PP;
+	tim2Channel.Alternate = GPIO_AF1_TIM2;
+	tim2Channel.Pull = GPIO_NOPULL;
+	tim2Channel.Speed = GPIO_SPEED_FREQ_LOW;
+	tim2Channel.Pin = GPIO_PIN_0 | GPIO_PIN_1; //PA0 and PA1
+	HAL_GPIO_Init(GPIOA, &tim2Channel);
+	tim2Channel.Mode = GPIO_MODE_AF_PP;
+		tim2Channel.Alternate = GPIO_AF1_TIM2;
+		tim2Channel.Pull = GPIO_NOPULL;
+		tim2Channel.Speed = GPIO_SPEED_FREQ_LOW;
+	tim2Channel.Pin = GPIO_PIN_2 | GPIO_PIN_10; //PB2 and PB10
+	HAL_GPIO_Init(GPIOB, &tim2Channel);
+
+
+
+	//3. NVIC Settings
+	HAL_NVIC_SetPriority(TIM2_IRQn, 15, 0);
+	HAL_NVIC_EnableIRQ(TIM2_IRQn);
+}
+

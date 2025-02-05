@@ -6,7 +6,9 @@
  */
 
 /*
+ * NOTE: IN this file exercise related to CLOCK is done and Exercise related to PLL is done in PLL_Configuration.c
  * Exercise
+ *
  * COnfig SYSCLK to 8MHZ
  * HCLK to 4MHZ
  * PCLK1 to 2MHZ

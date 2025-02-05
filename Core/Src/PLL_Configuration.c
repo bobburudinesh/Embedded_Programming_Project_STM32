@@ -8,7 +8,7 @@
 
 
 /*
- * Exercise
+ * Exercise: PLL CONFIGURATION
  * COnfig SYSCLK using PLL
  * In case 1: USE HSE as input to PLL engine
  * In case 2: USE HSI as input to PLL engine
@@ -34,7 +34,8 @@ void SystemClock_Config_HSE(uint8_t clock_freq);
 void SystemClock_Config_HSI(uint8_t clock_freq);
 
 UART_HandleTypeDef	huart2;
-
+TIM_HandleTypeDef	htimer6;
+TIM_HandleTypeDef	htimer2;
 
 
 
