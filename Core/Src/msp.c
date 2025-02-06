@@ -157,4 +157,15 @@ void HAL_CAN_MspInit(CAN_HandleTypeDef	*hcan) {
 	canGPIOInit.Pin = GPIO_PIN_11 | GPIO_PIN_12;
 	canGPIOInit.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
 	HAL_GPIO_Init(GPIOA, &canGPIOInit);
+
+
+	HAL_NVIC_SetPriority(CAN1_TX_IRQn, 15, 0);
+	HAL_NVIC_SetPriority(CAN1_RX0_IRQn, 15, 0);
+	HAL_NVIC_SetPriority(CAN1_RX1_IRQn, 15, 0);
+	HAL_NVIC_SetPriority(CAN1_SCE_IRQn, 15, 0);
+
+	HAL_NVIC_SetPriority(CAN2_TX_IRQn, 15, 0);
+	HAL_NVIC_SetPriority(CAN2_RX0_IRQn, 15, 0);
+	HAL_NVIC_SetPriority(CAN2_RX1_IRQn, 15, 0);
+	HAL_NVIC_SetPriority(CAN2_SCE_IRQn, 15, 0);
 }

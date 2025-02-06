@@ -50,13 +50,18 @@ int main(void) {
 	// We cannot do then after can start state.
 	CAN_Filter_Config();
 
+	if(HAL_CAN_ActivateNotification(&hcan1, CAN_IT_TX_MAILBOX_EMPTY | CAN_IT_RX_FIFO0_MSG_PENDING | CAN_IT_BUSOFF) != HAL_OK) {
+		Error_handler();
+	}
+
+
 	if(HAL_CAN_Start(&hcan1) != HAL_OK){ // Moves CAN from Initialization mode to STart Mode(REady for OPerations)
 		Error_handler();
 	}
 
 	CAN1_TX();
 
-	CAN1_RX();
+	//CAN1_RX(); This can be enabled if polling receiving function has to be used. Commented it as we are using interrupt based receiving
 
 	while(1);
 	return 0;
@@ -242,6 +247,45 @@ void CAN_Filter_Config(void){
 	HAL_CAN_ConfigFilter(&hcan1, &can1_Filter_Init);
 }
 
+void HAL_CAN_TxMailbox0CompleteCallback(CAN_HandleTypeDef *hcan) {
+	char msg[50];
+	memset(msg,0,sizeof(msg));
+	sprintf(msg, "Message Transmitted: M0\r\n");
+	HAL_UART_Transmit(&huart2, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
+
+}
+void HAL_CAN_TxMailbox1CompleteCallback(CAN_HandleTypeDef *hcan) {
+	char msg[50];
+	memset(msg,0,sizeof(msg));
+	sprintf(msg, "Message Transmitted: M1\r\n");
+	HAL_UART_Transmit(&huart2, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
+}
+void HAL_CAN_TxMailbox2CompleteCallback(CAN_HandleTypeDef *hcan) {
+	char msg[50];
+	memset(msg,0,sizeof(msg));
+	sprintf(msg, "Message Transmitted: M2\r\n");
+	HAL_UART_Transmit(&huart2, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
+}
+
+void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan) {
+	char msg[50];
+	CAN_RxHeaderTypeDef RxHeader;
+	uint8_t recvd_data[5];
+
+	if(HAL_CAN_GetRxMessage(&hcan1, CAN_RX_FIFO0, &RxHeader, recvd_data) != HAL_OK) {
+		Error_handler();
+	}
+	memset(msg,0,sizeof(msg));
+	sprintf(msg, "Message Received: %s\r\n", recvd_data);
+	HAL_UART_Transmit(&huart2, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
+}
+
+void HAL_CAN_ErrorCallback(CAN_HandleTypeDef *hcan) {
+	char msg[50];
+	memset(msg,0,sizeof(msg));
+	sprintf(msg, "CAN Error Detected... \r\n");
+	HAL_UART_Transmit(&huart2, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
+}
 void Error_handler(void) {
 	while(1);
 }
