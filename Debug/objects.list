@@ -1,4 +1,4 @@
-"./Core/Src/Timers2_GeneralPurpose_OC_Mode_PWM.o"
+"./Core/Src/CAN_Tx_Rx_Functionality_LB_Mode.o"
 "./Core/Src/it.o"
 "./Core/Src/msp.o"
 "./Core/Src/syscalls.o"
@@ -6,6 +6,7 @@
 "./Core/Src/system_stm32f4xx.o"
 "./Core/Startup/startup_stm32f407vgtx.o"
 "./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o"
+"./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o"
 "./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o"
 "./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.o"
 "./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.o"
