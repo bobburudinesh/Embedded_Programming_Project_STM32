@@ -1,4 +1,5 @@
-"./Core/Src/Low_Power_Mode_1.o"
+"./Core/Src/Low_Power_Mode_2_WFI.o"
+"./Core/Src/data.o"
 "./Core/Src/it.o"
 "./Core/Src/msp.o"
 "./Core/Src/syscalls.o"

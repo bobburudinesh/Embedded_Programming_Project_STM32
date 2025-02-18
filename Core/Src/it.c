@@ -43,3 +43,8 @@ void CAN1_SCE_IRQHandler(void) {
 	HAL_CAN_IRQHandler(&hcan1);
 }
 
+void EXTI0_IRQHandler(void) {
+	HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_0);
+}
+
+
